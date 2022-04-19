@@ -32,13 +32,15 @@ app.get('/app/flips/:number', (req, res) => {
     res.json({"raw" : coins, "summary" : countFlips(coins)})
 })
 
-app.get('/app/flip/call/:result', (req, res) => {
-    var result = flipACoin(req.params.result)
-    res.json(result)
-})
+app.get('/app/flip/call/:guess', (req, res) => {
+    
+    var actual = coinFlip()
+    let guess = req.params.guess
+    let result
+    if (actual.valueOf() == guess) result = "win"
+    else result = "lose"
 
-app.get('/app/echo/:number', (req, res) => {
-    res.status(200).json({'message': req.params.number})
+    res.json({"call" : guess, "flip" : actual, "result" : result})
 })
 
 app.use(function(req, res){
