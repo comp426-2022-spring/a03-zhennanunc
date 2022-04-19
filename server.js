@@ -1,8 +1,11 @@
 import { coinFlips, countFlips, coinFlip, flipACoin } from "./modules/coin.mjs"
+import minimist from 'minimist'
 import express from 'express'
 const app = express()
 
-var HTTP_PORT = 5000
+var min = minimist(process.argv.slice(2))
+var port = 'port'
+const HTTP_PORT = min[port] || 5000
 
 const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%', HTTP_PORT))
