@@ -1,10 +1,5 @@
 import { coinFlips, countFlips, coinFlip, flipACoin } from "./modules/coin.mjs"
-
-import {createRequire} from "module"
-const require = createRequire(import.meta.url)
-
-const { configFile } = require('browser-sync/dist/config')
-const express = require('express')
+import express from 'express'
 const app = express()
 
 var HTTP_PORT = 5000
