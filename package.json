@@ -1,6 +1,7 @@
 {
   "name": "a03-zhennanunc",
   "version": "0.1.0",
+  "type": "module",
   "description": "Build an API",
   "main": "server.js",
   "scripts": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/comp426-2022-spring/a03-zhennanunc#readme",
   "dependencies": {
+    "browser-sync": "^2.27.9",
     "express": "^4.17.3",
     "minimist": "^1.2.6",
     "yargs": "^17.4.1"
