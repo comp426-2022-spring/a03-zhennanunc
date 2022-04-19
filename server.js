@@ -29,7 +29,14 @@ app.get('/app/flip/', (req, res) => {
 
 app.get('/app/flips/:number', (req, res) => {
     var coins = coinFlips(req.params.number)
-    res.json({"raw" : coins, "summary" : countFlips(coins)})
+    
+    var headsCount = 0, tailsCount = 0
+    for (var i = 0; i < coins.length; i++){
+        if (coins[i].valueOf() == "heads") headsCount++
+        else tailsCount++
+    }
+
+    res.json({"raw" : coins, "summary" : {"heads" : headsCount, "tails" : tailsCount}})
 })
 
 app.get('/app/flip/call/:guess', (req, res) => {
