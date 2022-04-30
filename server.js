@@ -3,6 +3,7 @@ import minimist from 'minimist'
 import express from 'express'
 const app = express()
 
+
 var min = minimist(process.argv.slice(2))
 var port = 'port'
 const HTTP_PORT = min[port] || 5000
